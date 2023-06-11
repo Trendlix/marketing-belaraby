@@ -37,12 +37,15 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
   }, [])
   return <>
     <SectionContainer className='relative rounded-lg mt-4 mb-12 py-8 px-6 md:px-12 sm:py-12 overflow-hidden' shadow={true}>
-      <GatsbyImage
-        image={blogs[currentBlog]?.coverImage?.asset?.gatsbyImageData as IGatsbyImageData}
-        alt={blogs[currentBlog]?.coverImage?.alt as string}
-        // className='absolute inset-0 w-full h-full rounded-lg bg-black/50'
-        class='absolute inset-0 w-full h-full rounded-lg'
-      />
+      <div className="absolute inset-0">
+        <GatsbyImage
+          image={blogs[currentBlog]?.coverImage?.asset?.gatsbyImageData as IGatsbyImageData}
+          alt={blogs[currentBlog]?.coverImage?.alt as string}
+          // className='absolute inset-0 w-full h-full rounded-lg bg-black/50'
+          class='absolute inset-0 w-full h-full rounded-lg'
+          className='!w-full !h-full'
+        />
+      </div>
       <div className="absolute inset-0 bg-black/50">
       </div>
       <div className="relative">
