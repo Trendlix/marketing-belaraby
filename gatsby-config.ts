@@ -1,7 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
-import sanityConfig from "./sanity-config";
 
-console.log("sanityConfig", sanityConfig);
+import sanityConfig from "./sanity-config";
 
 const config: GatsbyConfig = {
   siteMetadata: {

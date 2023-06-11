@@ -28,6 +28,7 @@ exports.createPages = async ({
   actions,
   reporter,
 }: any) => {
+  const postsPerPage = parseInt(process?.env?.GATSBY_POST_PER_PAGE as string) 
   const BlogTemplate = path.resolve('./src/templates/blog.tsx')
   const mainPage = path.resolve('./src/templates/home.tsx')
   const categoryPage = path.resolve('./src/templates/category.tsx')
@@ -67,15 +68,15 @@ exports.createPages = async ({
   );
 
   // blogs paginated pages
-  const totalBlogListPages = Math.ceil(blogs.length / 2);
+  const totalBlogListPages = Math.ceil(blogs.length / postsPerPage);
   Array.from({ length: totalBlogListPages }).forEach((_, index) => {
     actions.createPage({
       path: index === 0 ? `/` : `/${index + 1}`,
       // path: '/:page',
       component: mainPage,
       context: {
-        limit: 2,
-        offset: index * 2,
+        limit: postsPerPage,
+        offset: index * postsPerPage,
         numberOfPages: totalBlogListPages,
         currentPage: index + 1,
       },
@@ -85,15 +86,15 @@ exports.createPages = async ({
   // categories pages
   const createCategoryPages = (category: string, basePath: string) => {
     const filteredBlogs = blogs?.filter((blog: any) => blog?.categories?.some((categoryItem: Queries.SanityCategory) => categoryItem?.name === category));
-    const totalBlogListPages = Math.ceil(filteredBlogs.length / 2);
+    const totalBlogListPages = Math.ceil(filteredBlogs.length / postsPerPage);
 
     Array.from({ length: totalBlogListPages }).forEach((_, index) => {
       actions.createPage({
         path: index === 0 ? `/${basePath.toLowerCase()}` : `/${basePath.toLowerCase()}/${index + 1}`,
         component: categoryPage,
         context: {
-          limit: 2,
-          offset: index * 2,
+          limit: postsPerPage,
+          offset: index * postsPerPage,
           numberOfPages: totalBlogListPages,
           currentPage: index + 1,
           category
@@ -102,8 +103,8 @@ exports.createPages = async ({
     });
   };
 
-  createCategoryPages('فيسبوك' , 'facebook');
-  createCategoryPages('انستجرام' , 'instagram');
-  createCategoryPages('يوتيوب' , 'youtube');
-  createCategoryPages('لينكدان' , 'linkedin');
+  createCategoryPages('فيسبوك', 'facebook');
+  createCategoryPages('انستجرام', 'instagram');
+  createCategoryPages('يوتيوب', 'youtube');
+  createCategoryPages('لينكدان', 'linkedin');
 };
