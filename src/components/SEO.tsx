@@ -120,7 +120,7 @@ export const SEO = ({ article = false, publishedTime, title, description, pathna
       <meta name='apple-mobile-web-app-title' content={`${seo.title}`} />
       <meta name='application-name' content={`${seo.title}`} />
 
-      <link rel='apple-touch-icon' sizes='180x180' href='/manifest/apple-touch-icon.png' />
+      {/* <link rel='apple-touch-icon' sizes='180x180' href='/manifest/apple-touch-icon.png' />
       <meta name='msapplication-TileColor' content='#101010' />
       <meta name='theme-color' content='#848a9a' />
 
@@ -129,7 +129,7 @@ export const SEO = ({ article = false, publishedTime, title, description, pathna
       <link rel='icon' type='image/svg+xml' sizes='16x16' href='/manifest/icon16.png' />
       <link rel='shortcut icon' href='/manifest/favicon.ico' type='image/svg+xml' />
 
-      <link rel='icon' href='/manifest/favicon.ico' type='image/svg+xml' />
+      <link rel='icon' href='/manifest/favicon.ico' type='image/svg+xml' /> */}
 
       {/* <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
