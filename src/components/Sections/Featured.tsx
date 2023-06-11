@@ -40,7 +40,8 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
       <GatsbyImage
         image={blogs[currentBlog]?.coverImage?.asset?.gatsbyImageData as IGatsbyImageData}
         alt={blogs[currentBlog]?.coverImage?.alt as string}
-        className='absolute inset-0 w-full h-full rounded-lg bg-black/50'
+        // className='absolute inset-0 w-full h-full rounded-lg bg-black/50'
+        class='absolute inset-0 w-full h-full rounded-lg'
       />
       <div className="absolute inset-0 bg-black/50">
       </div>
