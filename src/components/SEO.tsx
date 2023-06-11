@@ -21,7 +21,7 @@ const metaData = {
   image: '/images/og_banner.png',
   siteUrl: 'https://marketingbelaraby.com',
   DomainURL: 'https://marketingbelaraby.com',
-  twitterUsername: '@eitmg',
+  twitterUsername: '@trendlix',
   locale: 'ar',
 }
 
@@ -35,16 +35,6 @@ export const SEO = ({ article = false, publishedTime, title, description, pathna
     twitterUsername
   } = metaData
 
-  // console.log({
-  //   title,
-  //   description,
-  //   pathname,
-  //   children,
-  //   defaultTitle,
-  //   defaultDescription,
-  //   image,
-  //   siteUrl,
-  // })
   const seo = {
     article,
     author,
@@ -107,8 +97,8 @@ export const SEO = ({ article = false, publishedTime, title, description, pathna
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={`${seo.image}`} />
-      <meta name='twitter:creator' content='@eitmg' />
-      <meta name='twitter:site' content="@eitmg" />
+      <meta name='twitter:creator' content={`${seo.twitterUsername}`} />
+      <meta name='twitter:site' content={`${seo.twitterUsername}`} />
       <meta name='twitter:domain' content={`${seo.url}`} />
       <meta property='og:image:width' content='1200' />
       <meta property='og:image:height' content='600' />

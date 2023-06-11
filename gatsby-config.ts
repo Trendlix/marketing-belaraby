@@ -5,8 +5,14 @@ console.log("sanityConfig", sanityConfig);
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `marketing-belaraby`,
-    siteUrl: `https://www.yourdomain.tld`
+    author: 'Hamed Osama',
+    title: 'ماركتنج بالعربي',
+    description: 'ماركتنج بالعربي',
+    image: '/images/og_banner.png',
+    siteUrl: 'https://marketingbelaraby.com',
+    DomainURL: 'https://marketingbelaraby.com',
+    twitterUsername: '@trendlix',
+    locale: 'ar',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
