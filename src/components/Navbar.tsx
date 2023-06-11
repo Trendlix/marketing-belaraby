@@ -8,18 +8,18 @@ import MobileNavbar from './MobileNavbar'
 
 const Navbar = () => {
   return (
-    <div className='w-full gradientBg'>
-      <div className="container flex items-center justify-between py-2 sm:py-0 ">
+    <header className='w-full gradientBg'>
+      <div className="container flex items-center justify-between gap-4 py-4 sm:py-4">
         <MobileNavbar />
         <Link to='/'>
           <StaticImage
             alt='ماركتنج بالعربي'
             src='../images/logo.png'
-            width={129}
-            height={106}
+            width={187}
+            height={58}
             loading='eager'
-            layout="constrained"
-            className='w-14 h-11 sm:w-32 sm:h-auto'
+            layout="fixed"
+            className='w-24 h-7 sm:w-48 sm:h-auto'
             placeholder='blurred'
           // __imageData={
           //   {
@@ -52,7 +52,7 @@ const Navbar = () => {
         </div>
 
       </div>
-    </div>
+    </header>
   )
 }
 
