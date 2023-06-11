@@ -93,7 +93,7 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
                 image={blog.coverImage.asset.gatsbyImageData}
                 alt={blog.coverImage.alt}
                 className={cn(
-                  'w-16 h-12 sm:w-28 sm:h-20 rounded-lg cursor-pointer border-[3px] border-transparent transition-all',
+                  'w-16 h-12 sm:w-28 sm:h-20 rounded-lg cursor-pointer border-[3px] border-transparent transition-all overflow-hidden',
                   currentBlog === index && 'border-gray-800'
                 )}
               />
