@@ -4,6 +4,7 @@ import SectionContainer from '../containers/SectionContainer'
 import { ArrowLeft } from 'lucide-react'
 import FeaturedCard from '../cards/FeaturedCard'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { cn } from '@/utils/utils'
 
 interface FeaturedProps {
   blogs: Queries.SanityBlog[]
@@ -30,15 +31,15 @@ query{
 }
 `
 const Featured: FC<FeaturedProps> = ({ blogs }) => {
-  const [currentBlog, setCurrentBlog] = useState<Queries.SanityBlog>(blogs[2])
+  const [currentBlog, setCurrentBlog] = useState<number>(0)
   const changeBlogHandler = useCallback((index: number) => {
-    setCurrentBlog(blogs[index])
-  }, [blogs])
+    setCurrentBlog(index)
+  }, [])
   return <>
     <SectionContainer className='relative rounded-lg mt-4 mb-12 py-8 px-6 md:px-12 sm:py-12 overflow-hidden' shadow={true}>
       <GatsbyImage
-        image={currentBlog?.coverImage?.asset?.gatsbyImageData as IGatsbyImageData}
-        alt={currentBlog?.coverImage?.alt as string}
+        image={blogs[currentBlog]?.coverImage?.asset?.gatsbyImageData as IGatsbyImageData}
+        alt={blogs[currentBlog]?.coverImage?.alt as string}
         className='absolute inset-0 w-full h-full rounded-lg bg-black/50'
       />
       <div className="absolute inset-0 bg-black/50">
@@ -46,11 +47,11 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
       <div className="relative">
         <div className="grid lg:grid-cols-2 gap-8 h-full">
           <div className="h-full flex flex-col justify-center gap-6">
-            <h1 className='text-white text-2xl sm:text-3xl lg:text-4xl sm:leading-10 lg:leading-[3.2rem] line-clamp-2 '>{currentBlog?.title}</h1>
+            <h1 className='text-white text-2xl sm:text-3xl lg:text-4xl sm:leading-10 lg:leading-[3.2rem] line-clamp-2 '>{blogs[currentBlog]?.title}</h1>
             <div className="flex items-end justify-between gap-4">
-              <p className='text-[#BEBEBE] text-lg sm:text-xl xl:text-2xl line-clamp-2'>{currentBlog?.description}</p>
+              <p className='text-[#BEBEBE] text-lg sm:text-xl xl:text-2xl line-clamp-2'>{blogs[currentBlog]?.description}</p>
               <div className="flex gap-1 justify-end sm:justify-start items-end">
-                <Link to={`/blogs/${currentBlog?.slug?.current}`} className='text-white text-sm sm:text-lg sm:font-medium'>المزيد</Link>
+                <Link to={`/blogs/${blogs[currentBlog]?.slug?.current}`} className='text-white text-sm sm:text-lg sm:font-medium'>المزيد</Link>
                 <ArrowLeft className='text-white text-sm sm:text-lg' size={20} />
               </div>
             </div>
@@ -67,6 +68,7 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
                   imageAlt={blog.coverImage.alt}
                   imageStyle='!w-32'
                   descriptionStyle='!line-clamp-1'
+                  currentBlog={currentBlog}
                   setCurrentBlogHandler={changeBlogHandler}
                 />
               })
@@ -86,7 +88,10 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
               <GatsbyImage
                 image={blog.coverImage.asset.gatsbyImageData}
                 alt={blog.coverImage.alt}
-                className='w-16 h-12 sm:w-28 sm:h-20 rounded-lg cursor-pointer'
+                className={cn(
+                  'w-16 h-12 sm:w-28 sm:h-20 rounded-lg cursor-pointer border-[3px] border-transparent transition-all',
+                  currentBlog === index && 'border-gray-800'
+                )}
               />
             </span>
           })
