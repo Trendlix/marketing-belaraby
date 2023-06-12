@@ -73,7 +73,7 @@ export const postQuery = graphql`
       }
     }
     allSanityBlog(limit: 6, sort: {_createdAt: DESC} , filter : {
-      _id: { ne: $id} 
+      id: { ne: $id} 
     }){
       nodes {
         title
