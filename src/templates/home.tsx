@@ -108,13 +108,13 @@ const IndexPage: React.FC<PageProps> = ({ data, pageContext }) => {
               )}
           </div>
           <div className="col-span-1 flex flex-col gap-2 md:gap-4">
-            <StaticImage
+            {/* <StaticImage
               src='../images/ad-1.png'
               alt='ماركتنج بالعربي'
               className='rounded-lg'
               loading="lazy"
               placeholder="blurred"
-            />
+            /> */}
             {
               trendingBlogs.map((blog: any, index: number) => {
                 return <VerticalCard
