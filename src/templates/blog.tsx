@@ -108,7 +108,7 @@ const blog: FC<blogProps> = ({ data }) => {
       <div className="flex items-center justify-center gap-8 sm:gap-12 sm:justify-start">
         <p className='text-gray-500'>
           {blog?.categories?.map((category: any, index: number) => {
-            return <span key={category?.name + index}>{category.name}</span>
+            return <span className='mx-4' key={category?.name + index}>{category.name}</span>
           })}
         </p>
         <p className='text-gray-500'>
