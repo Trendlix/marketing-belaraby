@@ -5,6 +5,9 @@ import HorizontalCard from '@/components/cards/HorizontalCard'
 import VerticalCard from '@/components/cards/VerticalCard'
 import { HeadFC, graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '@/components/SEO'
+import { PortableText } from '@portabletext/react'
+import MyPortableText from '@/components/PortablText'
+// import MyPortableText from '@/components/PortablText'
 
 interface blogProps {
   data: Queries.Query
@@ -97,7 +100,7 @@ export const postQuery = graphql`
 `;
 
 const blog: FC<blogProps> = ({ data }) => {
-  
+
   const blog = data?.sanityBlog as Queries.SanityBlog;
   const trendingBlogs = data?.allSanityTrending.nodes as Queries.SanityTrending[];
   const featuredBlogs = data?.allSanityFeatured.nodes[0].blog as Queries.SanityBlog[];
@@ -135,7 +138,11 @@ const blog: FC<blogProps> = ({ data }) => {
               <p className='text-white text-sm sm:text-base'>{blog.categories && blog?.categories[0]?.name}</p>
             </div>
           </div>
-          <p className='text-gray-500'>لقد تسبب غزو روسيا لأوكرانيا في قلق عالمي، الأمر الذي وضع القوة العسكرية العظمى في العالم على خلاف مرة أخرى، وربما فرض التدخل الذي قد يؤدي إلى واحد من أكبر الصراعات في عقود من الزمان.
+          <div className="">
+            {/* <PortableText value={blog._rawBody} /> */}
+            <MyPortableText value={blog._rawBody} />
+          </div>
+          {/* <p className='text-gray-500'>لقد تسبب غزو روسيا لأوكرانيا في قلق عالمي، الأمر الذي وضع القوة العسكرية العظمى في العالم على خلاف مرة أخرى، وربما فرض التدخل الذي قد يؤدي إلى واحد من أكبر الصراعات في عقود من الزمان.
             وخلافا لحوادث مماثلة وقعت في الماضي، فإن هذه المعركة تدور رحاها في عصر وسائل التواصل الاجتماعي، حيث تضيف المذكرات، والحملات الإعلامية المضللة، والاحتيال، كلها إلى دوامة المعلومات المتزايدة، التي يمكن أن تربك، وتزعزع وتسحق ما يحدث فعلا في منطقة أوروبا الشرقية.
             ونظرا لهذا، والدور الذي تلعبه وسائل الإعلام الاجتماعية الآن في نشر المعلومات، فإن هذه المنصات تحتاج إلى العمل السريع للحد من أي إساءة لاستخدام شبكتها لغرض مشكوك فيه، وقد استنت العديد منها بالفعل خططا لتخفيف بعض عناصر إساءة الاستخدام والمعلومات المضللة.هنا نظرة إلى ما تم الإعلان عنه حتى الآن من التطبيقات الاجتماعية الرئيسية.
             Meta
@@ -144,7 +151,8 @@ const blog: FC<blogProps> = ({ data }) => {
             وخلافا لحوادث مماثلة وقعت في الماضي، فإن هذه المعركة تدور رحاها في عصر وسائل التواصل الاجتماعي، حيث تضيف المذكرات، والحملات الإعلامية المضللة، والاحتيال، كلها إلى دوامة المعلومات المتزايدة، التي يمكن أن تربك، وتزعزع وتسحق ما يحدث فعلا في منطقة أوروبا الشرقية.
             ونظرا لهذا، والدور الذي تلعبه وسائل الإعلام الاجتماعية الآن في نشر المعلومات، فإن هذه المنصات تحتاج إلى العمل السريع للحد من أي إساءة لاستخدام شبكتها لغرض مشكوك فيه، وقد استنت العديد منها بالفعل خططا لتخفيف بعض عناصر إساءة الاستخدام والمعلومات المضللة.هنا نظرة إلى ما تم الإعلان عنه حتى الآن من التطبيقات الاجتماعية الرئيسية.
             Meta
-          </p>
+          </p> */}
+
         </div>
         <div className="hidden sm:block sm:col-span-4">
           <div className="flex gap-8 items-end">

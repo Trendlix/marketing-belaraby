@@ -1,6 +1,9 @@
-import type { GatsbyConfig } from "gatsby";
+import dotenv from "dotenv";
 
-import sanityConfig from "./sanity-config";
+dotenv.config({ path: ".env" });
+
+import type { GatsbyConfig } from "gatsby";
+// import sanityConfig from "./sanity-config";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -46,7 +49,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        ...sanityConfig
+        projectId: process.env.SANITY_PROJECT_ID ,
+        dataset: process.env.SANITY_DATASET  ,
       }
     }
   ]
