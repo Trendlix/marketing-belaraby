@@ -2,9 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby';
 import { Menu } from 'lucide-react'
 
-import navLinks from '../utils/nav-links';
 
-const MobileNavbar = () => {
+const MobileNavbar = (navLinks : any) => {
   const [navShow, setNavShow] = React.useState(false)
 
   const onToggleNav = () => {
@@ -55,14 +54,14 @@ const MobileNavbar = () => {
           </button>
         </div>
         <nav className="fixed h-full w-full">
-          {navLinks.map((link) => (
-            <div key={link.title} className="w-full px-8 py-4 border-2 border-white/30">
+          {navLinks.map((link : any) => (
+            <div key={link._id} className="w-full px-8 py-4 border-2 border-white/30">
               <Link
-                to={link.link}
+                to={`/${link.slug.current}`}
                 className="text-lg font-bold tracking-widest text-white"
                 onClick={onToggleNav}
               >
-                {link.title}
+                {link.name}
               </Link>
             </div>
           ))}
