@@ -73,11 +73,11 @@ const index: FC<indexProps> = ({ data, pageContext }) => {
         {
           trendingBlogs.map((blog: any, index: number) => {
             return <TrendingContainer
-              key={blog.blog.slug.current + index}
-              title={blog.blog.title}
-              slug={`/blogs/${blog.blog.slug.current}`}
-              image={blog.blog.coverImage.asset.gatsbyImageData}
-              imageAlt={blog.blog.coverImage.alt}
+              key={blog?.blog?.slug?.current + index}
+              title={blog?.blog?.title}
+              slug={`/blogs/${blog?.blog?.slug?.current}`}
+              image={blog?.blog?.coverImage?.asset?.gatsbyImageData}
+              imageAlt={blog?.blog?.coverImage?.alt}
               className={cn(
                 'max-h-72 sm:max-h-[524px]',
                 index === 0 && 'col-span-5',
@@ -94,12 +94,12 @@ const index: FC<indexProps> = ({ data, pageContext }) => {
       <div className="flex flex-col items-stretch justify-center gap-y-2 sm:gap-y-4">
         {blogs.map((blog: any, index: number) => {
           return <HorizontalCard
-            key={blog.slug.current + index}
-            title={blog.title}
-            description={blog.description}
-            slug={blog.slug.current}
-            image={blog.coverImage.asset.gatsbyImageData}
-            imageAlt={blog.coverImage.alt}
+            key={blog?.slug?.current + index}
+            title={blog?.title}
+            description={blog?.description}
+            slug={blog?.slug?.current}
+            image={blog?.coverImage?.asset?.gatsbyImageData}
+            imageAlt={blog?.coverImage?.alt}
             shadow={true}
           />
         }

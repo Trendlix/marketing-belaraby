@@ -100,7 +100,7 @@ const IndexPage: React.FC<PageProps> = ({ data, pageContext }) => {
                   title={blog.title}
                   description={blog.description}
                   slug={blog.slug.current}
-                  image={blog.coverImage.asset.gatsbyImageData}
+                  image={blog?.coverImage?.asset?.gatsbyImageData}
                   imageAlt={blog.coverImage.alt}
                   shadow={true}
                 />
@@ -118,14 +118,14 @@ const IndexPage: React.FC<PageProps> = ({ data, pageContext }) => {
             {
               trendingBlogs.map((blog: any, index: number) => {
                 return <VerticalCard
-                  key={blog.blog.slug.current + index}
-                  title={blog.blog.title}
-                  description={blog.blog.description}
-                  category={blog.category.name}
-                  slug={blog.blog.slug.current}
-                  createdAt={blog.blog._createdAt}
-                  image={blog.blog.coverImage.asset.gatsbyImageData}
-                  imageAlt={blog.blog.coverImage.alt}
+                  key={blog?.blog?.slug?.current + index}
+                  title={blog?.blog?.title}
+                  description={blog?.blog?.description}
+                  category={blog?.category?.name}
+                  slug={blog?.blog?.slug?.current}
+                  createdAt={blog?.blog?._createdAt}
+                  image={blog?.blog?.coverImage?.asset?.gatsbyImageData}
+                  imageAlt={blog?.blog?.coverImage?.alt}
                   shadow={true}
                 />
               })
