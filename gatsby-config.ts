@@ -37,6 +37,15 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Cairo`,
+        ],
+        display: 'swap'
+      }
+    },
+    {
       resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {

@@ -103,8 +103,8 @@ const Footer = () => {
                 </g>
                 <defs>
                   <linearGradient id="paint0_linear_519_4396" x1="25.9401" y1="5.16667" x2="-6.48778" y2="17.0238" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#505050" />
+                    <stop stopColor="white" />
+                    <stop offset="1" stopColor="#505050" />
                   </linearGradient>
                 </defs>
               </svg>
