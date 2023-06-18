@@ -18,7 +18,7 @@ interface HorizontalCardProps {
 
 const HorizontalCard: FC<HorizontalCardProps> = ({ shadow = false, title, description, image, imageAlt, slug, imageStyle, descriptionStyle }) => {
   return <Link to={`/blogs/${slug}`} className={
-    cn('group bg-white p-2 sm:p-4 rounded-lg overflow-hidden hover:z-10 hover:scale-y-150 hover:scale-x-125 hover:translate-x-[-10%] hover:bg-primary transition-all duration-300',
+    cn('group bg-white p-2 sm:p-4 rounded-lg overflow-hidden hover:z-10   hover:bg-primary transition-all duration-300',
       { 'shadow-main': shadow }
     )
   }>
