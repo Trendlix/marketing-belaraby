@@ -29,8 +29,6 @@ const Footer = () => {
         <StaticImage
           alt='ماركتنج بالعربي'
           src='../images/footer-bg.png'
-          width={1920}
-          height={1080}
           loading='eager'
           layout="fullWidth"
           className='w-full h-full filter grayscale brightness-[0.1]'
