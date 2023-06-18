@@ -1,12 +1,31 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import { Search } from 'lucide-react'
 
 import { StaticImage } from 'gatsby-plugin-image'
-import navLinks from '../utils/nav-links'
+// import navLinks from '../utils/nav-links'
 import MobileNavbar from './MobileNavbar'
 
+
 const Navbar = () => {
+  // static query
+  const data = useStaticQuery(graphql`
+  {
+    allSanityActiveNavlinks(filter: {_id: {eq: "activeNavlinks"}}) {
+      nodes {
+        category {
+          _id
+          slug {
+            current
+          }
+          name
+        }
+      }
+    }
+  }
+  `)
+
+  const navLinks = data.allSanityActiveNavlinks.nodes[0].category
   return (
     <header className='w-full gradientBg'>
       <div className="container flex items-center justify-between gap-4 py-4 sm:py-4">
@@ -39,10 +58,15 @@ const Navbar = () => {
         <div className="flex items-center gap-x-8 md:gap-x-12 lg:gap-x-14">
 
           <ul className='hidden sm:flex items-center gap-x-6 md:gap-x-10 '>
+            <li >
+              <Link to='/' className='text-white text-sm md:text-xl md:leading-9'>
+                الرئيسية
+              </Link>
+            </li>
             {
-              navLinks.map((link, index) => (
+              navLinks.map((link: any, index: number) => (
                 <li key={index}>
-                  <Link to={link.link} className='text-white text-sm md:text-xl md:leading-9'>{link.title}</Link>
+                  <Link to={`/${link.slug.current}`} className='text-white text-sm md:text-xl md:leading-9'>{link.name}</Link>
                 </li>
               ))
             }
