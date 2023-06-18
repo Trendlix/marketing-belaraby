@@ -108,7 +108,7 @@ const Footer = () => {
                   </linearGradient>
                 </defs>
               </svg>
-              <p className='text-[#818181]'>Araby@Trendlix.com</p>
+              <p className='text-[#818181]'>info@marketingbelaraby.com</p>
             </div>
           </div>
           <div className="">
