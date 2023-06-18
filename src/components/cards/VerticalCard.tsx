@@ -16,7 +16,7 @@ interface IVerticalCardProps {
 const VerticalCard = ({ shadow = false, title, description, category, image, imageAlt, slug, createdAt }: IVerticalCardProps) => {
   return (
     <Link to={`/blogs/${slug}`} className={
-      cn('bg-white p-2 sm:p-4 rounded-lg overflow-hidden',
+      cn('group bg-white p-2 sm:p-4 rounded-lg overflow-hidden hover:bg-primary transition-all duration-300',
         { 'shadow-main': shadow }
       )
     }
@@ -30,13 +30,13 @@ const VerticalCard = ({ shadow = false, title, description, category, image, ima
           sizes='100%'
         />
         <div className="absolute categoryGradientBg px-5 py-1 top-2 right-2 rounded-md">
-          <p className='text-white text-sm sm:text-base'>{category}</p>
+          <p className='text-white text-sm sm:text-base group-hover:text-white duration-300'>{category}</p>
         </div>
       </div>
       <div className='flex flex-col mt-2 sm:mt-4'>
         <div className="flex items-center justify-between">
-          <p className='text-gray-600 text-xs sm:text-sm sm:font-medium'>{category}</p>
-          <p className='text-gray-600 text-xs sm:text-sm sm:font-medium'>
+          <p className='text-gray-600 text-xs sm:text-sm sm:font-medium group-hover:text-white/60 duration-300'>{category}</p>
+          <p className='text-gray-600 text-xs sm:text-sm sm:font-medium group-hover:text-white/60 duration-300'>
             {new Date(createdAt).toLocaleDateString('ar-EG-u-nu-latn', {
               year: 'numeric',
               month: 'long',
@@ -45,8 +45,8 @@ const VerticalCard = ({ shadow = false, title, description, category, image, ima
             )}
           </p>
         </div>
-        <p className='line-clamp-2 text-black text:lg sm:text-2xl my-1 sm:my-2 font-semibold'>{title}</p>
-        <p className='text-black/60 line-clamp-4 text-xs sm:text-sm'>
+        <p className='line-clamp-2 text-black text:lg sm:text-2xl my-1 sm:my-2 font-semibold group-hover:text-white duration-300'>{title}</p>
+        <p className='text-black/60 line-clamp-4 text-xs sm:text-sm group-hover:text-white/60 duration-300'>
           {description}
         </p>
       </div>
