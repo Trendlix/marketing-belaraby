@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <header className='w-full gradientBg'>
       <div className="container flex items-center justify-between gap-4 py-4 sm:py-4">
-        <MobileNavbar navLinks={navLinks}/>
+        <MobileNavbar />
         <Link to='/'>
           <StaticImage
             alt='ماركتنج بالعربي'

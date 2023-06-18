@@ -1,9 +1,23 @@
 import React from 'react'
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import { Menu } from 'lucide-react'
 
 
-const MobileNavbar = ({ navLinks }: any) => {
+const MobileNavbar = () => {
+  const data = useStaticQuery(graphql`
+  {
+    allSanityCategory{
+      nodes {
+          _id
+          slug {
+            current
+          }
+          name
+      }
+    }
+  }
+  `)
+  const navLinks = data.allSanityCategory.nodes
   const [navShow, setNavShow] = React.useState(false)
 
   const onToggleNav = () => {
