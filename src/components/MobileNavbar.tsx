@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { Menu } from 'lucide-react'
 
 
-const MobileNavbar = (navLinks : any) => {
+const MobileNavbar = ({ navLinks }: any) => {
   const [navShow, setNavShow] = React.useState(false)
 
   const onToggleNav = () => {
@@ -29,7 +29,7 @@ const MobileNavbar = (navLinks : any) => {
         <Menu className='block sm:hidden text-white cursor-pointer' size={24} />
       </button>
       <div
-        className={`fixed top-0 right-0 z-10 h-full w-4/5 transform gradientBg opacity-95 duration-300 ease-in-out ${navShow ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 right-0 z-10 h-full w-4/5 transform sidebarGradientBg opacity-95 duration-300 ease-in-out ${navShow ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="flex h-[60px] items-center">
@@ -54,7 +54,17 @@ const MobileNavbar = (navLinks : any) => {
           </button>
         </div>
         <nav className="fixed h-full w-full">
-          {navLinks.map((link : any) => (
+          <div className="w-full px-8 py-4 border-2 border-white/30">
+            <Link
+              to='/'
+              className="text-lg font-bold tracking-widest text-white"
+              onClick={onToggleNav}
+            >
+              الرئيسية
+            </Link>
+          </div>
+
+          {navLinks.map((link: any) => (
             <div key={link._id} className="w-full px-8 py-4 border-2 border-white/30">
               <Link
                 to={`/${link.slug.current}`}

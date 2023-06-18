@@ -7,6 +7,9 @@
   .gradientBg {
     background: linear-gradient(253.96deg, #000000 11.29%, #3C3C3C 102.2%);
   }
+  .sidebarGradientBg {
+    background: linear-gradient(266.81deg, #4BA3A0 -17.49%, #232323 113.87%);
+  }
   .categoryGradientBg {
     background: linear-gradient(253.96deg, #52B7B4 11.29%, #DE0917 102.2%);
   }
