@@ -14,11 +14,12 @@ interface FeaturedCardProps {
   setCurrentBlogHandler: (index: number) => void
   imageStyle?: any
   descriptionStyle?: any
+  slug: string
 }
 
-const FeaturedCard: FC<FeaturedCardProps> = ({ index, currentBlog, setCurrentBlogHandler, title, description, image, imageAlt, imageStyle, descriptionStyle }) => {
-  return <div
-    onClick={() => setCurrentBlogHandler(index)}
+const FeaturedCard: FC<FeaturedCardProps> = ({ index, currentBlog, setCurrentBlogHandler, title, description, image, imageAlt, imageStyle, descriptionStyle, slug }) => {
+  return <Link to={`/blogs/${slug}`}
+    onMouseEnter={() => setCurrentBlogHandler(index)}
     className={cn(
       'px-2 sm:px-4 rounded-lg overflow-hidden cursor-pointer',
     )}
@@ -48,7 +49,7 @@ const FeaturedCard: FC<FeaturedCardProps> = ({ index, currentBlog, setCurrentBlo
         </div>
       </div>
     </div>
-  </div>
+  </Link>
 }
 
 export default FeaturedCard

@@ -65,15 +65,16 @@ const Featured: FC<FeaturedProps> = ({ blogs }) => {
               blogs.map((blog: any, index: number) => {
                 return <FeaturedCard
                   index={index}
-                  key={blog.slug.current + index}
-                  title={blog.title}
-                  description={blog.description}
-                  image={blog.coverImage.asset.gatsbyImageData}
-                  imageAlt={blog.coverImage.alt}
+                  key={blog?.slug?.current + index}
+                  title={blog?.title}
+                  description={blog?.description}
+                  image={blog?.coverImage?.asset?.gatsbyImageData}
+                  imageAlt={blog?.coverImage?.alt}
                   imageStyle='!w-32'
                   descriptionStyle='!line-clamp-1'
                   currentBlog={currentBlog}
                   setCurrentBlogHandler={changeBlogHandler}
+                  slug={blog?.slug?.current}
                 />
               })
             }
