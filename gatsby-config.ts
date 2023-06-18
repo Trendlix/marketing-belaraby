@@ -30,6 +30,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GTM_TRACKING_ID,
+        includeInDevelopment: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {
