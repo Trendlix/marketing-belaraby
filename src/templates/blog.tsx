@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import SectionContainer from '@/components/containers/SectionContainer'
 import HorizontalCard from '@/components/cards/HorizontalCard'
@@ -7,6 +7,8 @@ import { HeadFC, graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '@/components/SEO'
 import { PortableText } from '@portabletext/react'
 import MyPortableText from '@/components/PortablText'
+import { ArrowUp } from 'lucide-react'
+import { cn } from '@/utils/utils'
 // import MyPortableText from '@/components/PortablText'
 
 interface blogProps {
@@ -106,6 +108,23 @@ const blog: FC<blogProps> = ({ data }) => {
   const featuredBlogs = data?.allSanityFeatured.nodes[0].blog as Queries.SanityBlog[];
   const restBlogs = data?.allSanityBlog.nodes as Queries.SanityBlog[];
 
+  const [show, setShow] = React.useState<boolean>(false)
+  const scrollToTopHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+  useEffect(() => {
+    if (typeof window === undefined) return
+    window?.addEventListener('scroll', () => {
+      if (window?.scrollY > 400) {
+        setShow(true)
+      } else {
+        setShow(false)
+      }
+    })
+  }, [])
   return <main className='py-8'>
     <SectionContainer>
       <div className="flex items-center justify-center gap-8 sm:gap-12 sm:justify-start">
@@ -220,6 +239,18 @@ const blog: FC<blogProps> = ({ data }) => {
         </div>
       </div>
     </SectionContainer>
+    <button
+      type='button'
+      aria-label='Scroll to top'
+      title="Scroll to top"
+      className={cn(
+        "fixed bottom-4 right-4 rounded-md bg-[#343434] shadow-[0px_4px_20px_rgba(0,0,0,0.25)] p-2 duration-300",
+        show ? 'bottom-4' : '-bottom-32'
+      )}
+      onClick={scrollToTopHandler}
+    >
+      <ArrowUp className='text-primary' />
+    </button>
   </main>
 }
 

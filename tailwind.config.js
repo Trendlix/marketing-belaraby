@@ -24,10 +24,12 @@ module.exports = {
     boxShadow: {
       main: '0 4px 20px rgba(0, 0, 0, 0.25)',
       ...defaultTheme.boxShadow,
-    }
-  },
-  extend: {
-
+    },
+    extend: {
+      colors: {
+        primary: '#52B7B4',
+      }
+    },
   },
   plugins: [],
 }
