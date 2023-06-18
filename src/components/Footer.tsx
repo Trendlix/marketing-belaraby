@@ -24,8 +24,21 @@ const Footer = () => {
   const navLinks = data.allSanityActiveNavlinks.nodes[0].category
 
   return (
-    <footer className='w-full gradientBg pt-8 sm:pt-12'>
-      <div className="w-10/12 sm:w-9/12 mx-auto">
+    <footer className='relative w-full gradientBg pt-8 sm:pt-12'>
+      <div className="absolute inset-0 bg-black/90">
+        <StaticImage
+          alt='ماركتنج بالعربي'
+          src='../images/footer-bg.png'
+          width={1920}
+          height={1080}
+          loading='eager'
+          layout="fullWidth"
+          className='w-full h-full filter grayscale brightness-[0.1]'
+          placeholder='blurred'
+        />
+
+      </div>
+      <div className="relative w-10/12 sm:w-9/12 mx-auto">
 
         <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-center gap-8 sm:gap-12 py-3 sm:py-4 ">
           {/* <div className="flex gap-4"></div> */}
