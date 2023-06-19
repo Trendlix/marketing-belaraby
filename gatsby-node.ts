@@ -28,7 +28,7 @@ exports.createPages = async ({
   actions,
   reporter,
 }: any) => {
-  const postsPerPage = parseInt(process?.env?.GATSBY_POST_PER_PAGE as string) 
+  const postsPerPage = parseInt(process?.env?.GATSBY_POST_PER_PAGE as string)
   const BlogTemplate = path.resolve('./src/templates/blog.tsx')
   const mainPage = path.resolve('./src/templates/home.tsx')
   const categoryPage = path.resolve('./src/templates/category.tsx')
@@ -45,6 +45,15 @@ exports.createPages = async ({
         }
       }
     }
+    allSanityCategory{
+      nodes {
+          _id
+          slug {
+            current
+          }
+          name
+      }
+    }
   }
   `
   );
@@ -53,6 +62,7 @@ exports.createPages = async ({
     return;
   }
   const blogs = result?.data?.allSanityBlog?.nodes;
+  const categories = result?.data?.allSanityCategory?.nodes;
 
   // single blogs pages
   blogs?.forEach((blog: any) => {
@@ -103,8 +113,8 @@ exports.createPages = async ({
     });
   };
 
-  createCategoryPages('فيسبوك', 'facebook');
-  createCategoryPages('انستجرام', 'instagram');
-  createCategoryPages('يوتيوب', 'youtube');
-  createCategoryPages('لينكدان', 'linkedin');
+  // generate categories pages
+  categories?.forEach((category: any) => {
+    createCategoryPages(category?.name, category?.slug?.current);
+  });
 };
