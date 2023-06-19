@@ -24,12 +24,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA_TRACKING_ID
-      },
-    },
-    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GTM_TRACKING_ID,
