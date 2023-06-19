@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import SectionContainer from '@/components/containers/SectionContainer'
 import HorizontalCard from '@/components/cards/HorizontalCard'
 import VerticalCard from '@/components/cards/VerticalCard'
-import { HeadFC, graphql, useStaticQuery } from 'gatsby'
+import { HeadFC, Link, graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '@/components/SEO'
 import { PortableText } from '@portabletext/react'
 import MyPortableText from '@/components/PortablText'
@@ -57,6 +57,9 @@ export const postQuery = graphql`
         }
         category {
           name
+          slug {
+            current
+          }
         }
       }
     }
@@ -130,7 +133,7 @@ const blog: FC<blogProps> = ({ data }) => {
       <div className="flex items-center justify-center gap-8 sm:gap-12 sm:justify-start">
         <p className='text-gray-500'>
           {blog?.categories?.map((category: any, index: number) => {
-            return <span className='mx-4' key={category?.name + index}>{category.name}</span>
+            return <Link to={`/${category?.slug?.current}`} className='mx-4 hover:text-secondary duration-300' key={category?.name + index}>{category.name}</Link>
           })}
         </p>
         <p className='text-gray-500'>
