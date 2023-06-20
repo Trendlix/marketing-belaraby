@@ -33,6 +33,9 @@ export const postQuery = graphql`
       }
       categories {
         name
+        slug {
+          current
+        }
       }
     }
     allSanityTrending(
@@ -57,9 +60,6 @@ export const postQuery = graphql`
         }
         category {
           name
-          slug {
-            current
-          }
         }
       }
     }
