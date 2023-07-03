@@ -16,8 +16,8 @@ interface SEOProps {
 
 const metaData = {
   author: 'Hamed Osama',
-  title: 'ماركتنج بالعربي',
-  description: 'ماركتنج بالعربي',
+  title: 'ماركتنج بالعربي | Marketing Bel Araby',
+  description: 'ماركتنج بالعربي هي أول منصة عربية في الشرق الاوسط بتساعدك تعرف اخر الاخبار في مجال الديجيتال ماركتنج و السوشيال ميديا عشان تكون دايما على دراية بكل ما يخص المجال',
   image: '/images/og_banner.png',
   siteUrl: 'https://marketingbelaraby.com',
   DomainURL: 'https://marketingbelaraby.com',

@@ -152,6 +152,6 @@ const IndexPage: React.FC<PageProps> = ({ data, pageContext }) => {
 export default IndexPage
 
 export const Head: HeadFC = () => <SEO
-  title="الرئيسية"
+  title="ماركتنج بالعربي | Marketing Bel Araby"
   pathname="/"
 />
