@@ -109,7 +109,7 @@ const index: FC<indexProps> = ({ data, pageContext }) => {
             <Pagination
               currentPage={currentPage}
               numberOfPages={numberOfPages}
-              baseURL={`/${getCategoryLink(category)}`}
+              baseURL={`${getCategoryLink(category)}`}
             />
           )
         }
