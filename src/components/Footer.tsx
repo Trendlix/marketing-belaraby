@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Cloud from './icons/Cloud'
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Facebook, Instagram, Youtube, Twitter } from 'lucide-react'
 // import navLinks from '../utils/nav-links'
 
 const Footer = () => {
@@ -41,10 +41,19 @@ const Footer = () => {
         <div className="flex flex-col-reverse sm:flex-row items-center justify-center sm:justify-center gap-8 sm:gap-12 py-3 sm:py-4 ">
           {/* <div className="flex gap-4"></div> */}
           <div className="flex items-center justify-between gap-4">
-            <Twitter className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
-            <Linkedin className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
-            <Instagram className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
-            <Facebook className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
+            <Link to='https://twitter.com/Marketing_araby' target='_blank' rel='noreferrer'>
+              <Twitter className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
+            </Link>
+            <Link to='https://www.youtube.com/@Marketingbelaraby' target='_blank' rel='noreferrer'>
+              <Youtube className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
+            </Link>
+            <Link to='https://www.instagram.com/marketing_belaraby/' target='_blank' rel='noreferrer'>
+              <Instagram className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
+            </Link>
+            <Link to='https://www.facebook.com/marketingbelaraby1?mibextid=LQQJ4d' target='_blank' rel='noreferrer'>
+              <Facebook className='text-white hover:text-secondary duration-300 cursor-pointer' size={32} />
+            </Link>
+
           </div>
           <Link to='/'>
             <StaticImage
